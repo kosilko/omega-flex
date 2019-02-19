@@ -47,10 +47,16 @@
   height: 100%;
 }
 
-.send-form {
-  flex: 0;
-}
+ .send-form {
+   flex: 0;
+   max-height: 50vh;
+   background-color: #EEF;
+ }
 
+ .send-form-content {
+   overflow-y: auto;
+   height: 100%;
+ }
 .left-col .omega-app-dialog, .omega-app-messages-list  {
   flex: 1;
 }
