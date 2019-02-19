@@ -96,9 +96,10 @@
   }
 
 
- .wave, .message {
+ .wave, .message, .file {
     white-space: normal;
     word-break: break-all;
+    border: 1px solid #F00;
   }
 
   </style>
@@ -140,7 +141,9 @@
             var n = $('.' + $e.attr('class'), $e.parent()).length;
             n++;
             $('<span />').text(' #' + n).appendTo($e.clone().appendTo($e.parent()).click(function() {$e.click();}));
-            
+            if ($e.is('.message')) {
+              $e.parent().scrollTop($e.parent()[0].scrollHeight);
+            }
           });        
         });
 
