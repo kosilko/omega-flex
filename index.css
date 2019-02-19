@@ -1,0 +1,107 @@
+ .omega-app-floater, .omega-app-floater.ui-resizable {
+  position: fixed;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+.omega-app-floater {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  width: 30%;
+  min-width: 28em;
+}  
+
+.omega-app-main {
+  display: flex;
+  height: 100%;
+}
+
+.left-col {
+  display: flex;
+  flex: 1;
+  /* width: 50%; */
+}
+
+.right-col {
+  height: 100%;
+  overflow: hidden;
+  flex: 0 0 14em;
+}
+
+.waves-list {
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+
+.right-col .wrapper, .omega-app-dialog {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
+.right-col .wrapper {
+  height: 100%;
+}
+
+.send-form {
+  flex: 0;
+}
+
+.left-col .omega-app-dialog, .omega-app-messages-list  {
+  flex: 1;
+}
+
+.omega-app-messages-list {
+  overflow-y: auto;
+  min-height: 50px;
+}
+
+.wave, .message {
+  white-space: normal;
+  word-break: break-all;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+
+
+
+
+
+
+
+/**
+ Only debugging styles here:
+*/
+.left-col .omega-app-dialog {
+  background-color: #EFF;
+}
+.right-col>.wrapper  {
+  background-color: #EFE;
+}
+
+.waves-list {
+  background-color: #99F;
+}
+
+.omega-app-floater {
+  background-color: #FFE;
+}
+.omega-app-messages-list {
+  background-color: #FEE;
+
+}
+.send-form {
+  background-color: #EEF;
+}
+
+.wave, .message, .file {
+  border: 1px solid #F00;
+}
