@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!-- saved from url=(0088)file:///D:/XAMPP7.12.14/repos/d7.dev/profiles/itinity/modules/itk/omega/flex_roman2.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" version="XHTML+RDFa 1.0" dir="ltr" class="not-front lang-ru lang-default device-computer"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <style>
+
+  .omega-app-floater, .omega-app-floater.ui-resizable {
+    position: fixed;
+    height: 100% !important;
+    overflow: hidden;
+  }
+  
+  .omega-app-floater {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    width: 30%;
+    min-width: 28em;
+  }  
+  
+  .omega-app-main {
+    display: flex;
+    height: 100%;
+  }
+  
+  .omega-app-main .left-col {
+    display: flex;
+    flex: 1;
+    /*width: 50%;*/
+  }
+
+  .right-col {
+    height: 100%;
+    overflow: hidden;
+    flex: 0 0 14em;
+  }
+
+  .waves-list {
+  }
+
+
+  
+  .omega-app-main .right-col .wrapper, .omega-app-main .omega-app-dialog {
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;*/
+  }
+
+  .omega-app-main .right-col .wrapper {
+    height: 100%;
+  }
+
+  .send-form {
+    flex: 0;
+  }
+  
+  .omega-app-main .omega-app-messages-list {
+    overflow-y: auto;
+    min-height: 50px;
+    flex: 1;
+  }
+
+
+  textarea {
+    resize: vertical;
+  }
+
+  
+  
+  
+  
+  .left-col .omega-app-dialog {
+    flex: 1;
+    background-color: #EFF;
+  }
+  .right-col>.wrapper  {
+    background-color: #EFE;
+  }
+
+  .waves-list {
+    background-color: #99F;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .omega-app-floater {
+    background-color: #FFE;
+  }
+  .omega-app-messages-list {
+    background-color: #FEE;
+
+  }
+  .send-form {
+    background-color: #EEF;
+  }
+
+
+ .wave, .message {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  </style>
+  <style type="text/css" media="all">
+    @import url("http://localhost/misc/ui/jquery.ui.core.css");
+    @import url("http://localhost/profiles/itinity/modules/itk/jquery_latest/replace/ui/1.10.2/themes/base/minified/jquery.ui.core.min.css");
+    @import url("http://localhost/misc/ui/jquery.ui.resizable.css");
+    @import url("http://localhost/profiles/itinity/modules/itk/jquery_latest/replace/ui/1.10.2/themes/base/minified/jquery.ui.resizable.min.css");
+  </style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery-migrate.min.js"></script>
+<script type="text/javascript" src="jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="jquery.ui.resizable.min.js"></script>
+  <script type="text/javascript">
+    (function($) {
+    'use strict';
+      $(document).ready(function() {
+        $('.omega-app-floater').resizable({
+          handles: 'w',
+          //minWidth: '30%',
+          resize: function(e, ui) {
+            var p = ui.element.closest('body');
+            var width = (100 / (parseInt(p.css('width')) / parseInt(ui.element.css('width')))).toFixed(2);
+            width = Math.min(95, width);
+            width = Math.max(30, width);
+            ui.element.css({
+              left: '', 
+              width: width + '%'
+            });
+          }
+        });
+
+        $('.file, .wave, .message, .main-content-item').each(function() {
+          var $e = $(this);
+          $e.css('cursor', 'pointer');
+          $e.click(function() {
+            var n = $('.' + $e.attr('class'), $e.parent()).length;
+            n++;
+            $('<span />').text(' #' + n).appendTo($e.clone().appendTo($e.parent()).click(function() {$e.click();}));
+            
+          });        
+        });
+
+      });
+    })(jQuery);
+  </script>
+</head>
+
+<body>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <p class="main-content-item">Main content Main content </p>
+  <div class="omega-app-floater">
+    <div class="omega-app-main">
+      <div class="left-col">
+        <div class="omega-app-dialog">
+            <div class="omega-app-user">
+              Пользователь с кем диалог
+            </div>
+            <div class="omega-app-messages-list">
+              <div class="message">message</div><div class="message">message</div>
+              <div class="message">long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long message</div>
+              <div class="message">widewidewidewidewidewidewidewidewidewidewidewidewidewidewidewidewidewide message</div>
+
+            </div>
+            <div class="send-form">
+              <label>Введите сообщение: </label>
+              <textarea></textarea>
+              <button>Send</button>
+              <div class="attachments">
+                <p class="file">файл</p>
+              </div>
+            </div> 
+        </div>    
+      </div>
+
+      <div class="right-col">
+        <div class="wrapper">
+          <div class="waves-list">
+            <div class="wave">WaveWaveWaveWaveWaveWaveWave WaveWaveWaveWaveWaveWaveWaveWave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+            <div class="wave">Wave</div><div class="wave">Wave</div><div class="wave">Wave</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+</body>
+</html>
