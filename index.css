@@ -53,7 +53,7 @@
    background-color: #EEF;
  }
 
- .send-form-content {
+ .send-form>.wrapper {
    overflow-y: auto;
    height: 100%;
  }
