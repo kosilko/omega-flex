@@ -15,8 +15,30 @@
         });
       }
     });
+
+
+
+    // Disable body scroll when messages/waves lists scrolls
+    $(window).bind('scroll', function(e) {
+      if (window._scrollLock && window._scrollState) {
+        window.scrollTo(window._scrollState.left, window._scrollState.top);
+      }
+      else {
+        window._scrollState = {
+          left: self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, 
+          top:  self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+        };
+      }
+    });
     
+    $('.omega-app-floater').hover(
+      function(e) {window._scrollLock = true;},
+      function(e) {window._scrollLock = false;}
+    );    
     
+
+    
+    // testing area
     $('.file, .wave, .message, .main-content-item').each(function() {
       var $e = $(this);
       $e.css('cursor', 'pointer');
@@ -29,15 +51,6 @@
         }
       });        
     });
-
-
-
-      $('.omega-app-floater').on('mouseenter', function (event) {
-          $("body").css("overflow","hidden");
-      }).on('mouseleave',  function(){
-          $("body").css("overflow","auto");
-      });
-
   });
 
 
