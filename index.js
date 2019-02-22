@@ -34,10 +34,12 @@
     $('.omega-app-floater').hover(
       function(e) {window._scrollLock = true;},
       function(e) {window._scrollLock = false;}
-    );    
-    
+    );
 
-    
+    // autosize textarea
+    autosize($('textarea'));
+
+
     // testing area
     $('.file, .wave, .message, .main-content-item').each(function() {
       var $e = $(this);

@@ -73,7 +73,10 @@
 
 
 textarea {
-  resize: vertical;
+    resize: none;
+    min-height: 50px;
+    max-height: 200px;
+    box-sizing: border-box;
 }
 
 
