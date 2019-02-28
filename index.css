@@ -11,9 +11,24 @@
   overflow-y: auto;
   width: 30%;
 }  
+.omega-app-floater .ui-resizable-handle {
+  background-color: #0F0;
+  width: 15px;
+}
+
+.omega-app-floater.ui-resizable  {
+  padding-left: 10px;
+}
+.omega-app-floater .scrollable {
+ overflow-y: auto;
+}
+
+
 html.device-computer .omega-app-floater {
   min-width: 28em;
 }
+
+
 .omega-app-main {
   display: flex;
   height: 100%;
@@ -33,7 +48,7 @@ html.device-computer .omega-app-floater {
 
 .waves-list {
   height: 100%;
-  overflow-y: auto;
+  
 }
 
 
@@ -55,7 +70,7 @@ html.device-computer .omega-app-floater {
  }
 
  .send-form>.wrapper {
-   overflow-y: auto;
+   
    height: 100%;
  }
 .left-col .omega-app-dialog, .omega-app-messages-list  {
@@ -63,7 +78,6 @@ html.device-computer .omega-app-floater {
 }
 
 .omega-app-messages-list {
-  overflow-y: auto;
   min-height: 50px;
 }
 

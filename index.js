@@ -17,7 +17,7 @@
     });
 
 
-    $('.omega-app-floater .autoscroll').each(function() {
+    $('.omega-app-floater .scrollable').each(function() {
       var isMacWebkit = navigator.userAgent.match(/Macintosh/) && navigator.userAgent.match(/WebKit/);
       var isFirefox = navigator.userAgent.match(/firefox/);
 
