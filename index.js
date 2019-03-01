@@ -1,7 +1,7 @@
 (function($) {
 'use strict';
   $(document).ready(function() {
-    $('.omega-app-floater').resizable({
+    $('TEMPORARY_DIXSABED.omega-app-floater').resizable({
       handles: 'w',
       //minWidth: '30%',
       resize: function(e, ui) {
@@ -16,16 +16,23 @@
       }
     });
 
+    
+    $('.waves-list .wave').bind('click', function(e) {
+      $('.omega-app-floater').toggleClass('left-col-hidden');
+    });
+    
+
+    // autosize textarea
+    autosize($('textarea'));    
+    
+    
+    
 
 
 
-
-
-
-
-    // TODO: Evaluate next code only for desktops
-    // Disable body scroll when messages/waves lists scrolls
+    // TODO: IKW: Evaluate next code only for desktops
     $(window).bind('scroll', function(e) {
+      // Disable body scroll when messages/waves lists scrolls
       if (window._scrollLock && window._scrollState) {
         window.scrollTo(window._scrollState.left, window._scrollState.top);
       }
@@ -42,20 +49,10 @@
       function(e) {window._scrollLock = false;}
     );
 
+    
 
 
 
-
-
-
-
-
-
-
-
-
-    // autosize textarea
-    autosize($('textarea'));
 
 
     // testing area

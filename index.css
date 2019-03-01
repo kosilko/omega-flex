@@ -1,4 +1,5 @@
- .omega-app-floater, .omega-app-floater.ui-resizable {
+ 
+.omega-app-floater, .omega-app-floater.ui-resizable {
   position: fixed;
   height: 100% !important;
   overflow: hidden;
@@ -96,12 +97,6 @@ textarea {
 }
 
 
-
-
-
-
-
-
 /**
  Only debugging styles here:
 */
@@ -130,3 +125,5 @@ textarea {
 .wave, .message, .file {
   border: 1px solid #F00;
 }
+
+
