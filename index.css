@@ -29,17 +29,25 @@ html.device-computer .omega-app-floater {
   min-width: 28em;
 }
 
+html.device-computer .left-col-hidden {
+  min-width: 14em;
+}
 
 .omega-app-main {
   display: flex;
+  justify-content: flex-end;
   height: 100%;
 }
 
 .left-col {
   display: flex;
   flex: 1;
-  /* width: 50%; */
 }
+
+.left-col-hidden .left-col {
+  display: none;
+}
+
 
 .right-col {
   height: 100%;
