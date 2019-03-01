@@ -48,7 +48,7 @@ html.device-computer .omega-app-floater {
 
 .waves-list {
   height: 100%;
-  
+  overflow-y: auto;
 }
 
 
@@ -70,7 +70,7 @@ html.device-computer .omega-app-floater {
  }
 
  .send-form>.wrapper {
-   
+   overflow-y: auto;
    height: 100%;
  }
 .left-col .omega-app-dialog, .omega-app-messages-list  {
@@ -78,6 +78,7 @@ html.device-computer .omega-app-floater {
 }
 
 .omega-app-messages-list {
+  overflow-y: auto;
   min-height: 50px;
 }
 

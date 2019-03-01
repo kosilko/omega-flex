@@ -17,34 +17,41 @@
     });
 
 
-    $('.omega-app-floater .scrollable').each(function() {
-      var isMacWebkit = navigator.userAgent.match(/Macintosh/) && navigator.userAgent.match(/WebKit/);
-      var isFirefox = navigator.userAgent.match(/firefox/);
 
-      this.onwheel = wheelHandler;
-      this.onmousewheel = wheelHandler;
-      if (isFirefox) {
-          this.scrollTop = 0;
-          this.addEventListener("DOMMouseScroll", wheelHandler, false);
+
+
+
+
+
+    // TODO: Evaluate next code only for desktops
+    // Disable body scroll when messages/waves lists scrolls
+    $(window).bind('scroll', function(e) {
+      if (window._scrollLock && window._scrollState) {
+        window.scrollTo(window._scrollState.left, window._scrollState.top);
       }
-      function wheelHandler(event) {
-          var e = event || window.event;
-          var deltaY = e.deltaY * -20 || e.wheelDeltaY / 4 || (e.wheelDeltaY === undefined && e.wheelDelta / 4) || e.detail * -10 || 0;
-          if (isMacWebkit) {
-              deltaY /= 30;
-          }
-          e.currentTarget.scrollTop -= deltaY;
-          if (isFirefox && e.type !== "DOMMouseScroll") {
-              this.removeEventListener("DOMMouseScroll", wheelHandler, false);
-          }
-
-          e.preventDefault && e.preventDefault();
-          e.stopPropagation && e.stopPropagation();
-          e.cancelBubble = true;
-          e.returnValue = false; 
-          return false;
+      else {
+        window._scrollState = {
+          left: self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, 
+          top:  self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+        };
       }
     });
+    
+    $('.omega-app-floater').hover(
+      function(e) {window._scrollLock = true;},
+      function(e) {window._scrollLock = false;}
+    );
+
+
+
+
+
+
+
+
+
+
+
 
 
     // autosize textarea
