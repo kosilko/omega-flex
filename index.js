@@ -1,29 +1,55 @@
 (function($) {
 'use strict';
   $(document).ready(function() {
-    $('TEMPORARY_DIXSABED.omega-app-floater').resizable({
-      handles: 'w',
-      //minWidth: '30%',
-      resize: function(e, ui) {
-        var p = ui.element.closest('body');
-        var width = (100 / (parseInt(p.css('width')) / parseInt(ui.element.css('width')))).toFixed(2);
-        width = Math.min(95, width);
-        width = Math.max(30, width);
-        ui.element.css({
-          left: '', 
-          width: width + '%'
-        });
-      }
-    });
-
+    
+    
+    function percentWidth($e, $parent) {
+      return 100 * $e.width() / ($parent || $e.offsetParent()).width();
+    }
+    
+    function fixMinMaxWidth(width) {
+      width = Math.min(95, width);
+      width = Math.max(30, width);
+      return width;
+    }
+    
+    function setResizable($e) {
+      $e.resizable({
+        handles: 'w',
+        //minWidth: '30%',
+        resize: function(e, ui) {
+          ui.element.css({
+            left: '', 
+            width: fixMinMaxWidth(percentWidth(ui.element)) + '%'
+          });
+        }
+      });      
+    }
+    
+    setResizable($('.omega-app-floater'));
     
     $('.waves-list .wave').bind('click', function(e) {
-      $('.omega-app-floater').toggleClass('left-col-hidden');
+      var $e = $('.omega-app-floater');
+      if (!$e.hasClass('left-col-hidden')) {
+        // Hide left col
+        $e
+          .data('width-ratio', $e.width() / $('.right-col', $e).width())
+          .resizable('destroy')
+          .css('width', percentWidth($('.right-col', $e), $e.offsetParent()).toFixed(2) + '%')
+          .addClass('left-col-hidden');
+      }
+      else {
+        // Show left col
+        $e
+        .removeClass('left-col-hidden')
+        .css('width', fixMinMaxWidth($e.data('width-ratio') * percentWidth($('.right-col', $e), $e.offsetParent())).toFixed(2) + '%');
+        setResizable($e);
+      }
     });
     
 
     // autosize textarea
-    autosize($('textarea'));    
+    autosize($('textarea'));
     
     
     

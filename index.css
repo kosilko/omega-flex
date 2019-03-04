@@ -20,6 +20,7 @@
 .omega-app-floater.ui-resizable  {
   padding-left: 10px;
 }
+
 .omega-app-floater .scrollable {
  overflow-y: auto;
 }
@@ -29,7 +30,7 @@ html.device-computer .omega-app-floater {
   min-width: 28em;
 }
 
-html.device-computer .left-col-hidden {
+html.device-computer .omega-app-floater.left-col-hidden {
   min-width: 14em;
 }
 
@@ -44,7 +45,7 @@ html.device-computer .left-col-hidden {
   flex: 1;
 }
 
-.left-col-hidden .left-col {
+.omega-app-floater.left-col-hidden .left-col {
   display: none;
 }
 
