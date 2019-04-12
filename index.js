@@ -52,6 +52,37 @@
     autosize($('textarea'));
     
     
+    // IN CONSTRUCTION
+    document.onpaste = function (e) {
+      // use event.originalEvent.clipboard for newer chrome versions
+      var items = (e.clipboardData  || e.originalEvent.clipboardData).items;
+      console.log(JSON.stringify(items)); // will give you the mime types
+      // find pasted image among pasted items
+      var blob = null;
+      for (var i = 0; i < items.length; i++) {
+        console.log(items[i]);
+        if (items[i].type.match(/^image($|\/)/)) { // image/png
+          blob = items[i].getAsFile();
+          console.log(blob);
+        }
+        else if (items[i].type === 'text/html') {
+          items[i].getAsString(function(item) {
+            var $e = $(item = item.replace(/<\/?(body|html)>/gi, '').replace(/<!--.*?-->/g, ''));
+            blob = $e.attr('src');
+            
+          console.log(blob);
+          });
+        }
+      }
+      // load image if there is a pasted image
+      if (0 && blob !== null) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          console.log(e.target.result); // data url!
+        };
+        reader.readAsDataURL(blob);
+      }
+    };
     
 
 
