@@ -42,7 +42,8 @@ html.device-computer .omega-app-floater.left-col-hidden {
 
 .left-col {
   display: flex;
-  flex: 1;
+  flex: 0 0 calc(100% - 14em);
+  max-width: calc(100% - 14em);
 }
 
 .omega-app-floater.left-col-hidden .left-col {
@@ -60,8 +61,6 @@ html.device-computer .omega-app-floater.left-col-hidden {
   height: 100%;
   overflow-y: auto;
 }
-
-
 
 .right-col .wrapper, .omega-app-dialog {
   display: flex;
@@ -85,6 +84,7 @@ html.device-computer .omega-app-floater.left-col-hidden {
  }
 .left-col .omega-app-dialog, .omega-app-messages-list  {
   flex: 1;
+  overflow: hidden;
 }
 
 .omega-app-messages-list {
@@ -92,11 +92,25 @@ html.device-computer .omega-app-floater.left-col-hidden {
   min-height: 50px;
 }
 
-.wave, .message {
+.wave {
   white-space: normal;
   word-break: break-all;
 }
 
+.message {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.message .content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: normal;
+  line-break: auto;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
 
 textarea {
     resize: none;
